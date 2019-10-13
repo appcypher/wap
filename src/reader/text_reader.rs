@@ -1,17 +1,24 @@
 use super::cursor::Cursor;
-use super::limits::Limits;
 use crate::traits::ReaderTrait;
 
 pub struct TextReader {
     cursor: Cursor,
-    limits: Limits,
 }
+
+// GLOBAL LIMIT: // held by Reader
+//    type_index_limit, mem_index_limit, table_index_limit, global_index_limit,
+//    func_index_limit,
+//    func_stack_type_match (call)
+//    section_order
+// LOCAL LIMIT: // held by FunctionBodyReader
+//    local_index_limit, block_index_limit,
+//    stack_type_match (ops, return, block entry, block return)
+
 
 impl TextReader {
     pub fn new() -> Self {
         Self {
             cursor: Cursor::Initial,
-            limits: Limits::new(),
         }
     }
 }
