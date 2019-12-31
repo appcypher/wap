@@ -1,4 +1,4 @@
 #[derive(Debug, Clone, Copy)]
-pub enum Cursor {
+pub enum State {
     Initial,
 }

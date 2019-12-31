@@ -4,7 +4,7 @@ mod reader;
 pub mod error;
 pub mod traits;
 
-pub use reader::Cursor;
+pub use reader::State;
 
 pub mod wasm {
     use crate::parser::Parser as P;

@@ -1,9 +1,12 @@
-use super::cursor::Cursor;
+use super::state::State;
 use crate::traits::ReaderTrait;
 
 pub struct TextReader {
-    cursor: Cursor,
+    state: State,
 }
+
+// This text reader should simulate the binary reader
+// For example, it should simulate the type section even if it is not present.
 
 // GLOBAL LIMIT: // held by Reader
 //    type_index_limit, mem_index_limit, table_index_limit, global_index_limit,
@@ -18,13 +21,13 @@ pub struct TextReader {
 impl TextReader {
     pub fn new() -> Self {
         Self {
-            cursor: Cursor::Initial,
+            state: State::Initial,
         }
     }
 }
 
 impl ReaderTrait for TextReader {
-    fn read_next(&self) -> Cursor {
+    fn read_next(&self) -> State {
         unimplemented!()
     }
 }
